@@ -1,11 +1,5 @@
 import { useState, useCallback } from 'react'
 
-// In development, Vite proxy handles /api → localhost:3001
-// In production, VITE_API_URL points to the Railway backend
-const API_BASE = import.meta.env.VITE_API_URL || ''
-
-export { API_BASE }
-
 export default function useExtract() {
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(false)
@@ -17,7 +11,7 @@ export default function useExtract() {
     setLoading(true)
 
     try {
-      const res = await fetch(`${API_BASE}/api/extract`, {
+      const res = await fetch('/api/extract', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ url }),
