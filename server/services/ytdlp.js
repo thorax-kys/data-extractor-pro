@@ -14,27 +14,11 @@ if (!fs.existsSync(DOWNLOADS_DIR)) {
 
 /**
  * Resolve the yt-dlp binary path.
- * - On Windows: bundled .exe from yt-dlp-exec
- * - On Linux (Railway): yt-dlp-exec installs a platform-appropriate binary
- * - Fallback: assume yt-dlp is on PATH
+ * Expects yt-dlp to be installed on PATH:
+ *   - Windows dev: install via `pip install yt-dlp` or `winget install yt-dlp`
+ *   - Railway (Linux): installed via pip in nixpacks.toml start command
  */
 function getBinaryPath() {
-  const isWindows = process.platform === 'win32';
-  const ext = isWindows ? '.exe' : '';
-
-  // yt-dlp-exec bundles the binary at node_modules/yt-dlp-exec/bin/yt-dlp[.exe]
-  const bundled = path.join(
-    __dirname, '..', 'node_modules', 'yt-dlp-exec', 'bin', `yt-dlp${ext}`
-  );
-  if (fs.existsSync(bundled)) {
-    // Ensure it's executable on Linux
-    if (!isWindows) {
-      try { fs.chmodSync(bundled, 0o755); } catch { /* ignore */ }
-    }
-    return bundled;
-  }
-
-  // Fallback: hope it's on PATH
   return 'yt-dlp';
 }
 
