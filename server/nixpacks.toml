@@ -1,4 +1,4 @@
 # Railway uses Nixpacks for builds
 # Install system packages needed for yt-dlp and audio conversion
 [phases.setup]
-aptPkgs = ["python3", "ffmpeg"]
+aptPkgs = ["python3", "python-is-python3", "ffmpeg"]
