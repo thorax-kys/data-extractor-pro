@@ -1,0 +1,29 @@
+.error-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  font-size: 0.825rem;
+  color: var(--error-text);
+  background: var(--error-bg);
+  border: 1px solid var(--error-border);
+  border-radius: 8px;
+  transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease;
+}
+
+.error-banner button {
+  background: none;
+  border: 1px solid var(--error-border);
+  color: var(--error-text);
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+
+.error-banner button:hover {
+  background: var(--error-border);
+}

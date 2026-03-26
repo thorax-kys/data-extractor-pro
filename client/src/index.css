@@ -1,0 +1,92 @@
+/* ── Reset ─────────────────────────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Theme tokens (dark default) ──────────────────────────── */
+
+:root {
+  --bg: #0a0a0a;
+  --bg-raised: #111;
+  --bg-inset: #0e0e0e;
+  --border: #1a1a1a;
+  --border-subtle: #222;
+  --text: #fff;
+  --text-secondary: #888;
+  --text-muted: #555;
+  --text-faint: #444;
+  --btn-bg: #fff;
+  --btn-text: #0a0a0a;
+  --btn-secondary-bg: #222;
+  --btn-secondary-text: #fff;
+  --error-text: #e5534b;
+  --error-bg: #1a1010;
+  --error-border: #2a1515;
+}
+
+[data-theme="light"] {
+  --bg: #fafafa;
+  --bg-raised: #fff;
+  --bg-inset: #f5f5f5;
+  --border: #e0e0e0;
+  --border-subtle: #d5d5d5;
+  --text: #111;
+  --text-secondary: #666;
+  --text-muted: #999;
+  --text-faint: #bbb;
+  --btn-bg: #111;
+  --btn-text: #fff;
+  --btn-secondary-bg: #e5e5e5;
+  --btn-secondary-text: #111;
+  --error-text: #d1242f;
+  --error-bg: #fff5f5;
+  --error-border: #ffe0e0;
+}
+
+/* ── Base ─────────────────────────────────────────────────── */
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg);
+  color: var(--text-secondary);
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border-radius: 3px;
+}
+
+::selection {
+  background: rgba(128, 128, 128, 0.25);
+  color: var(--text);
+}

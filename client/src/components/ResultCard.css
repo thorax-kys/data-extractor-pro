@@ -1,0 +1,118 @@
+.result-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-raised);
+  transition: background-color 200ms ease, border-color 200ms ease;
+}
+
+.result-card__thumb {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 4px;
+  background: var(--border);
+}
+
+.result-card__title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+.result-card__uploader {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.result-card__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.result-card__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg-inset);
+  transition: background-color 200ms ease, border-color 200ms ease;
+}
+
+.result-card__stat-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.result-card__stat-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.result-card__actions {
+  display: flex;
+  gap: 8px;
+}
+
+.result-card__download {
+  flex: 1;
+  display: block;
+  text-align: center;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 150ms ease, background-color 200ms ease, color 200ms ease;
+}
+
+.result-card__download:hover {
+  opacity: 0.85;
+}
+
+.result-card__download--secondary {
+  background: var(--btn-secondary-bg);
+  color: var(--btn-secondary-text);
+}
+
+.result-card__download--secondary:hover {
+  opacity: 0.75;
+}
+
+.result-card__download--disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.result-card__download--disabled:hover {
+  opacity: 0.3;
+}
+
+@media (max-width: 480px) {
+  .result-card {
+    padding: 16px;
+  }
+
+  .result-card__stats {
+    grid-template-columns: 1fr;
+  }
+
+  .result-card__actions {
+    flex-direction: column;
+  }
+}
